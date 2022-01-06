@@ -2,5 +2,11 @@
 使用示例
 ```go
 client := ali_sms.NewSmsClient("accessKeyId", "accessKeySecret")
-res, err := client.SendSms("阿里云短信测试", "SMS_154950909", `{"code":"123456"}`, "155xxxx6770")
+param := map[string]string{
+"PhoneNumbers":  "155xxxx6770",
+"SignName":      "阿里云短信测试",
+"TemplateCode":  "SMS_154950909",
+"TemplateParam": `{"code":"123456"}`,
+}
+res, err := client.SendSms(param)
 ```
