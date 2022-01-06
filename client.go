@@ -14,19 +14,15 @@ type SmsClient struct {
 	gatewayUrl      string
 	accessKeyId     string
 	accessKeySecret string
-	signName        string
-	templateCode    string
 }
 
-func NewSmsClient(accessKeyId, accessKeySecret, signName, templateCode string) *SmsClient {
+func NewSmsClient(accessKeyId, accessKeySecret string) *SmsClient {
 	smsClient := new(SmsClient)
 	smsClient.Request = &Request{}
 	smsClient.Client = &http.Client{}
 	smsClient.gatewayUrl = "https://dysmsapi.aliyuncs.com/"
 	smsClient.accessKeyId = accessKeyId
 	smsClient.accessKeySecret = accessKeySecret
-	smsClient.signName = signName
-	smsClient.templateCode = templateCode
 	return smsClient
 }
 
